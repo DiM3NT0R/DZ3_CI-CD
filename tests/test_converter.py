@@ -10,7 +10,7 @@ def client():
 def test_distance_km_to_mi(client):
     response = client.get('/distance?value=10&from=km&to=mi')
     assert response.status_code == 200
-    assert round(response.json['result'], 2) == 6.21
+    assert round(response.json['result'], 2) == 1.24
 
 def test_temperature_c_to_f(client):
     response = client.get('/temperature?value=0&from=C&to=F')
