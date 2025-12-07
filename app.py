@@ -10,7 +10,7 @@ def add():
         dist = float(request.args.get('value'))
         from_unit = request.args.get('from')
         to_unit = request.args.get('to')
-        result = converter.distance(dist, from_unit, to_unit)
+        result = Converter.distance(dist, from_unit, to_unit)
         return jsonify({'result': result}), 200
     except ValueError:
         return jsonify({'error': 'Invalid input'}), 400
