@@ -1,32 +1,47 @@
 class Converter:
     def distance(dist, unit, point_unit):
-        if point_unit == 'km':
-            if unit == 'mi':
-                return dist * 1.60934
-            if unit == 'km':
-                return dist
-        elif point_unit == 'mi':
-            if unit == 'km':
+        # Из километров
+        if unit == 'km':
+            if point_unit == 'mi':
                 return dist * 0.621371
-            if unit == 'mi':
+            if point_unit == 'km':
                 return dist
-        elif point_unit == 'm':
-            if unit == 'km':
+            if point_unit == 'm':
                 return dist * 1000
-            if unit == 'mi':
-                return dist * 1609.34
-            if unit == 'm':
-                return dist
-            if unit == 'ft':
-                return dist * 0.3048
-        elif point_unit == 'ft':
-            if unit == 'm':
-                return dist * 3.28084
-            if unit == 'km':
+            if point_unit == 'ft':
                 return dist * 3280.84
-            if unit == 'mi':
+        
+        # Из миль
+        elif unit == 'mi':
+            if point_unit == 'km':
+                return dist * 1.60934
+            if point_unit == 'mi':
+                return dist
+            if point_unit == 'm':
+                return dist * 1609.34
+            if point_unit == 'ft':
                 return dist * 5280
-            if unit == 'ft':
+        
+        # Из метров
+        elif unit == 'm':
+            if point_unit == 'km':
+                return dist / 1000
+            if point_unit == 'mi':
+                return dist / 1609.34
+            if point_unit == 'm':
+                return dist
+            if point_unit == 'ft':
+                return dist * 3.28084
+        
+        # Из футов
+        elif unit == 'ft':
+            if point_unit == 'm':
+                return dist / 3.28084
+            if point_unit == 'km':
+                return dist / 3280.84
+            if point_unit == 'mi':
+                return dist / 5280
+            if point_unit == 'ft':
                 return dist
     
     def temperature(temp, unit, point_unit):
